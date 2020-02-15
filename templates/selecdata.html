@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询学生的数据显示</title>
+</head>
+<body>
+<h2>all方法显示</h2>
+{{ stu }}
+<hr/>
+{% for foo in stu %}
+    第 {{ forloop.counter }}个学生:{{ foo }}<br/>
+    <hr/>
+    <h3>信息:{{ forloop.counter }}</h3><br/>
+    {% for one,v in foo.items %}
+        {% if one == "out_data" %}
+            {{ one }}:{{ v|date:"Y-m-d H:i:s" }}<br/>
+        {% else %}
+            {{ one }}:{{ v }}<br/>
+        {% endif %}
+
+    {% endfor %}
+    <hr/>
+
+{% endfor %}
+
+</body>
+</html>
